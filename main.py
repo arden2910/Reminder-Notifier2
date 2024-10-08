@@ -32,6 +32,7 @@ toaster = ToastNotifier()
 # Event to signal scheduler thread to stop
 stop_event = threading.Event()
 
+
 def load_config():
     logging.info("Attempting to load configuration file.")
     if not os.path.exists(CONFIG_FILE):
@@ -54,11 +55,13 @@ def load_config():
         logging.error(f"Error loading configuration: {e}")
         sys.exit(1)
 
+
 def show_error(message):
     root = Tk()
     root.withdraw()  # Hide the main window
     messagebox.showerror("Error", message)
     root.destroy()
+
 
 def display_confirmation(config):
     logging.info("Displaying configuration confirmation dialog.")
@@ -80,17 +83,27 @@ def display_confirmation(config):
         logging.info("User canceled the reminder system.")
         return False
 
+
 def show_notification(message):
+    positive_attributes = [
+        "Proactive", "Focused", "Wise", "Adaptable", "Inclusive",
+        "Explorer", "Strategist", "Artist",
+        "Mentor", "Professional Expert", "Solution Architect", "Leader", "CTO",
+        "Planner", "Implementer", "Athlete", "Mountaineer",
+    "Joyful", "Content", "Grateful", "Calm", "Energetic",
+    "Optimistic", "Empowered", "Confident", "Inspired", "Peaceful"
+    ]
     try:
         logging.info(f"Displaying notification: {message}")
         toaster.show_toast(
-            "Reminder",
+            random.choice(positive_attributes),
             message,
             duration=10,  # Duration in seconds
             threaded=True
         )
     except Exception as e:
         logging.error(f"Error displaying notification: {e}")
+
 
 def schedule_reminders(config):
     logging.info("Starting reminder scheduler.")
@@ -129,6 +142,7 @@ def schedule_reminders(config):
             time.sleep(1)
     logging.info("Scheduler thread has been stopped.")
 
+
 def create_image():
     # Create an image for the system tray icon
     width = 64
@@ -149,10 +163,12 @@ def create_image():
 
     return image
 
+
 def on_exit(icon, item):
     logging.info("User selected to exit the application.")
     icon.stop()
     stop_event.set()  # Signal the scheduler thread to stop
+
 
 def setup_tray():
     menu = (item('Exit', on_exit),)
@@ -161,6 +177,7 @@ def setup_tray():
         icon.run()
     except Exception as e:
         logging.error(f"System tray icon encountered an error: {e}")
+
 
 def main():
     logging.info("Application started.")
@@ -181,6 +198,7 @@ def main():
     else:
         logging.info("User chose not to start the reminder system.")
         sys.exit(0)
+
 
 if __name__ == "__main__":
     main()
