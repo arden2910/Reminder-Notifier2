@@ -15,7 +15,14 @@
         "Taking time to respond shows control and confidence; don't rush your answers or actions.",
         "Even the most subtle gestures, like a steady gaze or smooth movement, can convey a powerful sense of confidence.",
         "When we are confident, we convey our message once—clearly and effectively—without the need to convince.",
-        "Master your environment and your presence, and you will naturally project the confidence you seek."
+        "Master your environment and your presence, and you will naturally project the confidence you seek.",
+
+                "Proactive", "Focused", "Wise", "Adaptable", "Inclusive",
+        "Explorer", "Strategist", "Artist",
+        "Mentor", "Professional Expert", "Solution Architect", "Leader", "CTO",
+        "Planner", "Implementer", "Athlete", "Mountaineer",
+    "Joyful", "Content", "Grateful", "Calm", "Energetic",
+    "Optimistic", "Empowered", "Confident", "Inspired", "Peaceful"
       ],
       "interval_minutes": 40
     },

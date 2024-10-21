@@ -86,12 +86,7 @@ def display_confirmation(config):
 
 def show_notification(message):
     positive_attributes = [
-        "Proactive", "Focused", "Wise", "Adaptable", "Inclusive",
-        "Explorer", "Strategist", "Artist",
-        "Mentor", "Professional Expert", "Solution Architect", "Leader", "CTO",
-        "Planner", "Implementer", "Athlete", "Mountaineer",
-    "Joyful", "Content", "Grateful", "Calm", "Energetic",
-    "Optimistic", "Empowered", "Confident", "Inspired", "Peaceful"
+""
     ]
     try:
         logging.info(f"Displaying notification: {message}")
