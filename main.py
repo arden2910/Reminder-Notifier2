@@ -1,3 +1,5 @@
+from win32com.shell import shell
+shell.SetCurrentProcessExplicitAppUserModelID("\u200B")
 import json
 import os
 import sys
@@ -85,19 +87,17 @@ def display_confirmation(config):
 
 
 def show_notification(message):
-    positive_attributes = [
-""
-    ]
     try:
         logging.info(f"Displaying notification: {message}")
         toaster.show_toast(
-            random.choice(positive_attributes),
             message,
+            "\u200B",
             duration=10,  # Duration in seconds
             threaded=True
         )
-    except Exception as e:
-        logging.error(f"Error displaying notification: {e}")
+        print(f"{message}")
+    except Exception:
+        pass
 
 
 def schedule_reminders(config):
@@ -178,6 +178,18 @@ def main():
     logging.info("Application started.")
     config = load_config()
     if display_confirmation(config):
+        # Wait 2 seconds then show the first notification immediately
+        try:
+            time.sleep(2)
+            first = config['reminders'][0]
+            msg = first['message']
+            if isinstance(msg, list):
+                show_notification(random.choice(msg))
+            else:
+                show_notification(msg)
+        except Exception as e:
+            logging.error(f"Error showing initial notification: {e}")
+
         # Start scheduler in a separate thread
         scheduler_thread = threading.Thread(target=schedule_reminders, args=(config,))
         scheduler_thread.start()
@@ -196,4 +208,7 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except Exception:
+        pass
