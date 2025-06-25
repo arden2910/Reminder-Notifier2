@@ -16,19 +16,19 @@
         "Even the most subtle gestures, like a steady gaze or smooth movement, can convey a powerful sense of confidence.",
         "When we are confident, we convey our message once—clearly and effectively—without the need to convince.",
         "Master your environment and your presence, and you will naturally project the confidence you seek.",
-
-                "Proactive", "Focused", "Wise", "Adaptable", "Inclusive",
-        "Explorer", "Strategist", "Artist",
-        "Mentor", "Professional Expert", "Solution Architect", "Leader", "CTO",
-        "Planner", "Implementer", "Athlete", "Mountaineer",
-    "Joyful", "Content", "Grateful", "Calm", "Energetic",
-    "Optimistic", "Empowered", "Confident", "Inspired", "Peaceful"
+                "Proactive", "Focused", "Wise", "Adaptable",
+    "Optimistic", "Confident"
       ],
       "interval_minutes": 40
     },
     {
       "message": "You did great today! Now, take a break, write down what you did, think about your next steps, and get ready to exercise.",
-      "time": ["11:50", "15:10", "17:10"]
+      "time": ["11:50", "15:40", "17:15"]
+    }
+,
+    {
+      "message": "關燈, 關螢幕",
+      "time": ["17:30", "18:00", "18:10"]
     }
   ]
 }
